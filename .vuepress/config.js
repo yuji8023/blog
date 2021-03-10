@@ -34,16 +34,17 @@ module.exports = {
       {
         "text": "书柜",
         "icon": "reco-document",
-        "items": [
-          {
-            "text": "yuji的书柜",
-            "link": "/docs/yuji/"
-          },
-          {
-            "text": "joy的书柜",
-            "link": "/docs/joy/"
-          }
-        ]
+        "link": "/books/"
+        // "items": [
+        //   {
+        //     "text": "yuji的书柜",
+        //     "link": "/books/yuji/"
+        //   },
+        //   {
+        //     "text": "joy的书柜",
+        //     "link": "/books/joy/"
+        //   }
+        // ]
       },
       {
         "text": "关于",
@@ -58,12 +59,8 @@ module.exports = {
       }
     ],
     "sidebar": {
-      "/docs/yui/": [
-        "",
-        "theme",
-        "plugin",
-        "api",
-        "ydjsydzgs"
+      "/books/yui/": [
+        
       ]
     },
     "type": "blog",
@@ -87,18 +84,18 @@ module.exports = {
       {
         "title": "雨悸",
         "desc": "老的博客地址",
-        "avatar": "/avatar.png",
+        "avatar": "/yuji.png",
         "link": "https://yuji8023.github.io"
       }
     ],
-    "logo": "/logo.png",
+    "logo": "/book.png",
     "search": true,
     "searchMaxSuggestions": 10,
     // 侧边导航
     "sidebar": "auto",
     "lastUpdated": "最后更新时间",
     "author": "yuji",
-    "authorAvatar": "/avatar.png",
+    "authorAvatar": "/yuji.png",
     "record": "@design by yuji",
     "startYear": "2017"
   },
