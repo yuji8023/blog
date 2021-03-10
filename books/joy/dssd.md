@@ -8,7 +8,7 @@ categories:
  - 书
 bookBy: joy
 bookName: 岛上书店
-img: https://wfqqreader-1252317822.image.myqcloud.com/cover/354/614354/t6_614354.jpg
+bookImg: https://wfqqreader-1252317822.image.myqcloud.com/cover/354/614354/t6_614354.jpg
 ---
 
 :::tip

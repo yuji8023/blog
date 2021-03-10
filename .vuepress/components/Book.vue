@@ -3,20 +3,20 @@
     <li v-for="book in books" :key="book.key">
       <div class='front'>
         <div class="img-box">
-          <img :src="book.frontmatter.bookImg || '/default_img.png'" clss="book-img medium-zoom-image">
+          <img :src="book.frontmatter.bookImg || `${base}default_img.png`" clss="book-img medium-zoom-image">
         </div>
         <div class="name-box">
           <p>{{book.frontmatter.bookName || ''}}</p>
           <p class="article">{{book.title || ''}}</p>
         </div>
-        <img class="reader-img" :src="`/${book.frontmatter.bookBy}.png`" alt="读书人">
+        <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人">
       </div>
       <div class="back">
         <div class="info">
           <div class="excerpt" v-html="book.excerpt"></div>
           <a :href="book.path">more</a>
         </div>
-        <img class="reader-img" :src="`/${book.frontmatter.bookBy}.png`" alt="读书人">
+        <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人">
       </div>
       
     </li>
@@ -180,7 +180,8 @@
   export default {
     data() {
       return {
-        books: []
+        books: [],
+        base: '/blog/'
       }
     },
     mounted () {
@@ -189,7 +190,10 @@
       const books = this.$site.pages.filter(function(item) {
         return item.frontmatter && (item.frontmatter.bookBy =='yuji' || item.frontmatter.bookBy =='joy');
       });
-      console.log(books[0])
+      // console.log(this.$site)
+      this.base = this.$site.base;
+
+      //console.log(books[0])
       this.books = books;
     }
   }

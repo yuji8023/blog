@@ -2,6 +2,7 @@ module.exports = {
   "title": "森友交流会",
   "description": "一个集读书，学习，游戏，炒股于一体的交流平台",
   "dest": "public",
+  "base": '/blog/',
   "head": [
     [
       "link",
