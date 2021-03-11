@@ -20,4 +20,4 @@ stages:                                   # 构建阶段配置
           displayName: 'npm Step'
           inputs:                         # 构建输入参数设定
             nodeVersion: 10.1             # 指定 node 环境版本为 10.1
-            goals: "npm install && npm run deploy"    # 输出 构建环境 Node 和 npm 信息
+            goals: "ls"    # 输出 构建环境 Node 和 npm 信息
