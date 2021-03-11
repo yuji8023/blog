@@ -6,6 +6,8 @@ set -e
 # 进入生成的文件夹
 cd public
 
+git config --global user.name "yuji"
+git config --global user.email "yuji_hu@163.com"
 git init
 git add .
 git commit -m 'deploy'
@@ -17,4 +19,3 @@ git push -u origin master
 
 
 cd - # 退回开始所在目录
-rm -rf docs/.vuepress/dist
