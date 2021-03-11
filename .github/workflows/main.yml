@@ -22,6 +22,11 @@ jobs:
       - name: Build
         run: npm install && npm run build
 
+      - name: push to gitee
+        env: # 设置环境变量
+          GITEE_PASSWORD: ${{ secrets.GITEE_PASSWORD }} # toKen私密变量
+        run: npm run deploy
+
       # 部署到 GitHub Pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -29,3 +34,25 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: public
+
+
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          # 注意替换为你的 GitHub 源仓库地址
+          source-repo: "git@github.com:yuji8023/blog.git"
+          # 注意替换为你的 Gitee 目标仓库地址
+          destination-repo: "git@gitee.com:yuji8023/blog.git"
+
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: yuji8023
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库
+          gitee-repo: yuji8023/blog
