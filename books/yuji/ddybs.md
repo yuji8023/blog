@@ -14,7 +14,7 @@ bookImg: https://wfqqreader-1252317822.image.myqcloud.com/cover/7/26720007/t6_26
 读书如果没有方法，那么你能有多少收获？
 :::
 
-<!--more-->
+<!-- more -->
 
 #### 理解力的池子有多大，就能读多难的书
 

@@ -14,7 +14,7 @@ bookImg: https://wfqqreader-1252317822.image.myqcloud.com/cover/844/34560844/t6_
 贫穷不可怕，赤贫才可怕。
 :::
 
-<!--more-->
+<!-- more -->
 
 ## 那个醉汉
 
