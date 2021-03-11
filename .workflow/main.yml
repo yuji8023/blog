@@ -1,47 +1,23 @@
-name: Deploy Gitee Pages
-
-# 触发条件：在 push 到 master 分支后
-on:
-  push:
-    branches:
-      - master
-
-# 任务
-jobs:
-  build-and-deploy:
-    # 服务器环境：最新版 Ubuntu
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    steps:
-      # 拉取代码
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      
-      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
-        uses: actions/setup-node@v1 # 作用：安装nodejs
-        with:
-          node-version: ${{ matrix.node-version }} # 版本
-      
-      # 生成静态文件
-      - name: Build
-        env: 
-          SSH: ${{ secrets.SSH }}
-        run: npm install && npm run deploy
-
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@main
-        with:
-          # 注意替换为你的 Gitee 用户名
-          gitee-username: yuji8023
-          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
-          gitee-password: ${{ secrets.SSH }}
-          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
-          gitee-repo: yuji8023/blog
-          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
-          branch: gh-pages
+# ========================================================
+# npm 构建参考流水线样例
+# 功能：输出当前 npm 构建环境的环境信息
+# ========================================================
+name: gitee-go-npm-example                # 定义一个唯一 ID 标识为 gitee-go-npm-example，名称为 “npm-流水线示例” 的流水线
+displayName: 'npm-流水线示例'
+triggers:                                 # 流水线触发器配置
+  push:                                   # 设置 master 分支 在产生代码 push 时精确触发（PRECISE）构建
+    - matchType: PRECISE
+      branch: master
+commitMessage: ''                         # 通过匹配当前提交的 CommitMessage 决定是否执行流水线
+stages:                                   # 构建阶段配置
+  - stage:                                # 定义一个 ID 标识为 npm-build-stage ,名为 “npm Stage” 的阶段
+      name: npm-build-stage
+      displayName: 'npm Stage'
+      failFast: false                     # 允许快速失败，即当 Stage 中有任务失败时，直接结束整个 Stage
+      steps:                              # 构建步骤配置
+        - step: npmbuild@1                # 采用 npm 编译环境
+          name: npm-build                 # 定义一个 ID 标识为 npm-build ,名为 “npm Step” 的阶段
+          displayName: 'npm Step'
+          inputs:                         # 构建输入参数设定
+            nodeVersion: 10.1             # 指定 node 环境版本为 10.1
+            goals: "git -v"    # 输出 构建环境 Node 和 npm 信息
