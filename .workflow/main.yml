@@ -19,5 +19,10 @@ stages:                                   # 构建阶段配置
           name: npm-build                 # 定义一个 ID 标识为 npm-build ,名为 “npm Step” 的阶段
           displayName: 'npm Step'
           inputs:                         # 构建输入参数设定
-            nodeVersion: 10.1             # 指定 node 环境版本为 10.1
-            goals: "ls"    # 输出 构建环境 Node 和 npm 信息
+            nodeVersion: 14.15             # 指定 node 环境版本为 10.1
+            goals: |    # 输出 构建环境 Node 和 npm 信息
+              node -v
+              npm -v
+              npm install
+              npm run config SSH $SSH
+              npm run deploy
