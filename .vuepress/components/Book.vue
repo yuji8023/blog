@@ -14,7 +14,7 @@
       <div class="back">
         <div class="info">
           <div class="excerpt" v-html="book.excerpt"></div>
-          <a :href="book.path">more</a>
+          <a :href="base + book.path.substr(1)">more</a>
         </div>
         <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人">
       </div>
@@ -219,7 +219,7 @@
       // console.log(this.$site)
       this.base = this.$site.base;
 
-      //console.log(books[0])
+      console.log(books[0])
       this.books = books;
     }
   }
