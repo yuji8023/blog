@@ -43,6 +43,7 @@
     margin-top: 0;
     list-style: none;
     position: relative;
+    background-color: var(--background-color);
   }
 
   @media screen and (min-width: 600px) and (max-width: 900px)  {
@@ -54,6 +55,7 @@
       margin-top: 0;
       list-style: none;
       position: relative;
+      background-color: var(--background-color);
     }
   }
 
@@ -66,6 +68,7 @@
       margin-top: 0;
       list-style: none;
       position: relative;
+      background-color: var(--background-color);
     }
   }
 
@@ -92,7 +95,7 @@
     transform-style: preserve-3d;
     transition: .6s ease-in-out;
     /* overflow: hidden; */
-    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
     padding: 20px;
   }
 
