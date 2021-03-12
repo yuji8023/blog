@@ -7,7 +7,7 @@ categories:
  - 书
 bookBy: yuji
 bookName: 罪与罚
-bookImg: https://wfqqreader-1252317822.image.myqcloud.com/cover/844/34560844/t6_34560844.jpg
+bookImg: https://wfqqreader-1252317822.image.myqcloud.com/cover/789/23303789/t6_23303789.jpg
 ---
 
 :::tip
