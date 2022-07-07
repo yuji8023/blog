@@ -35,7 +35,7 @@ module.exports = {
       {
         "text": "书柜",
         "icon": "reco-document",
-        "link": "/books/"
+        "link": "/books/",
         // "items": [
         //   {
         //     "text": "yuji的书柜",

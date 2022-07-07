@@ -6,17 +6,17 @@
           <img :src="book.frontmatter.bookImg || `${base}default_img.png`" clss="book-img medium-zoom-image">
         </div>
         <div class="name-box">
-          <p>{{book.frontmatter.bookName || ''}}</p>
+          <p>《{{book.frontmatter.bookName || ''}}》</p>
           <p class="article">{{book.title || ''}}</p>
         </div>
-        <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人">
+        <!-- <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人"> -->
       </div>
       <div class="back">
         <div class="info">
           <div class="excerpt" v-html="book.excerpt"></div>
-          <a :href="base + book.path.substr(1)">more</a>
+          <a :href="base + book.path.substr(1)">链接</a>
         </div>
-        <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人">
+        <!-- <img class="reader-img" :src="`${base}${book.frontmatter.bookBy}.png`" alt="读书人"> -->
       </div>
       
     </li>
@@ -25,15 +25,29 @@
 
 
 <style>
-  /* .page-edit {
+  .page-edit {
     display: none
-  } */
-
+  }
+  .page {
+    background: url('../public/book_bg.jpg') no-repeat center;
+    background-size: cover;
+    height: calc(100vh - 112px);
+  }
+  .page-title  .reco-account,  .reco-date{
+    color: rgba(224, 187, 107, .7);
+  }
+  .page-title .title {
+    color: #e0bb6b;
+  }
+  .comments-wrapper {
+    display: none;
+  }
   .ul_box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 0;
+    
   }
   .ul_box li {
     width: calc(33% - 20px);
@@ -44,6 +58,22 @@
     list-style: none;
     position: relative;
     background-color: var(--background-color);
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    font-family: sans-serif;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    background: linear-gradient(
+    to top right,
+    rgba(90, 149, 207, 0.5),
+    rgba(58, 76, 99, 0.8)
+    );
+    box-shadow: 10px -10px 20px rgba(0, 0, 0, 0.2),
+    -10px 10px 20px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px); /*  元素后面区域添加模糊效果 */
+    border-radius: 6px;
+    /* transform: rotate(-4deg); */
   }
 
   @media screen and (min-width: 600px) and (max-width: 900px)  {
@@ -111,10 +141,10 @@
   }
 
   .name-box {
-    padding: 0 0 0 18px;
+    padding: 0 0 0 12px;
     float: left;
     vertical-align: middle;
-    margin-top: 16px;
+    margin-top: 8px;
     width: calc(100% - 86px);
   }
 
@@ -212,14 +242,12 @@
     },
     mounted () {
       //console.log(this.$frontmatter)
-      //console.log(this.$site.pages)
       const books = this.$site.pages.filter(function(item) {
         return item.frontmatter && (item.frontmatter.bookBy =='yuji' || item.frontmatter.bookBy =='joy');
       });
       // console.log(this.$site)
       this.base = this.$site.base;
 
-      console.log(books[0])
       this.books = books;
     }
   }

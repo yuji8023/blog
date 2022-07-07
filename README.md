@@ -12,7 +12,7 @@ heroImageStyle: {
 }
 bgImage: '/banner.jpg'
 bgImageStyle: {
-  height: '1000px'
+  height: '400px'
 }
 isShowTitleInHome: false
 ---
