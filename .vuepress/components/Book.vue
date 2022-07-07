@@ -29,7 +29,7 @@
     display: none
   }
   .page {
-    background: url('/book_bg.jpg') no-repeat center;
+    background: url('/blog/book_bg.jpg') no-repeat center;
     background-size: cover;
     height: calc(100vh - 112px);
   }
